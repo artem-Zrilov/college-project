@@ -38,7 +38,7 @@ class UserController {
                 login: user.login,
                 id: user._id
             }, config.jwt.secret, config.jwt.options);
-
+            console.log(token)
             res
                 .cookie('jwt', token, config.jwt.cookie)
                 .json({
