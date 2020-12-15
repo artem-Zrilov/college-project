@@ -13,8 +13,8 @@ const apiRoutes = require('./routes/api');
 
 
 
-const PORT = process.env.PORT || 8080;
-const host = '127.0.0.1';
+const PORT = process.env.APP_PORT || 8080;
+const host = process.env.APP_IP || '127.0.0.1';
 
 const app = express();
 const hbs = expHbs.create({
