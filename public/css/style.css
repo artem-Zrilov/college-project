@@ -1,0 +1,63 @@
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.auth-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    transform: translate(-50%, -50%);
+}
+
+.main {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.chip.active {
+    background-color: #26a69a;
+    color: #fff;
+}
+
+.tabs-doctor-type-select .tab a {
+    color: rgba(77, 182, 172, 0.8);
+}
+
+.tabs-doctor-type-select .tab a.active,
+.tabs-doctor-type-select .tab a:hover {
+    background-color: transparent;
+    color: #4db6ac;
+}
+
+.tabs-doctor-type-select .tab a:focus,
+.tabs-doctor-type-select .tab a:focus.active  {
+    background-color: rgba(77, 182, 172, 0.2);
+}
+
+.tabs-doctor-type-select .indicator {
+    background-color: #4db6ac;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.stretch > div {
+    align-items: stretch
+}
+
+.j-center {
+    justify-content: center;
+}
+
+.preloader-wrapper {
+    display: none;
+}
+
+.preloader-wrapper.active {
+    display: inline-block;
+}
+

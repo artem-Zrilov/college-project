@@ -1,0 +1,73 @@
+{{> navbar}}
+<div class="main container">
+    <div class="row">
+        <div class="col l5 m12">
+            <ul class="tabs tabs-fixed-width tabs-doctor-type-select">
+                {{#each specializations.global}}
+                    <li class="tab"><a href="#{{ _id }}">{{ title }}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col s12">
+            {{#each specializations.children}}
+                <div id="{{ @key }}">
+                    <ul class="collection">
+                        {{#each this}}
+                            <li class="collection-item" data-id="{{ _id }}">{{ title }}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col s12 flex j-center">
+            <div class="preloader-wrapper">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cards row">
+        {{#each doctors}}
+            <div class="col s12 m6 l3">
+                <div class="card" data-id="{{ _id }}">
+                    <div class="card-image">
+                        <img {{#if image}} src="{{ image }}" {{else}} src="/images/no-photo.png" {{/if}}>
+                        <span class="card-title">{{ fullName }}</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>{{ description }}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<template id="card">
+    <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+                <img src="./images/doctor.jpg">
+                <span class="card-title"></span>
+                <a class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+{{#section 'script'}}
+
+    <script src="/js/index.js"></script>
+
+{{/section}}
