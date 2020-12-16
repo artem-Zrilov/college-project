@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector('.login');
+    const form = document.querySelector('.form');
 
-    btn.addEventListener('click', () => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
         const login = document.querySelector('#login').value;
         const password = document.querySelector('#password').value;
 
@@ -12,8 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             redirect: "follow",
             body: JSON.stringify({login, password}) // body data type must match "Content-Type" header
-        }).then(() => {
-            window.location = '/';
+        }).then((response) => {
+            if (response.message) {
+                alert(response.message);
+            } else {
+                setTimeout(() => window.location = '/', 400);
+            }
         })
     })
 })

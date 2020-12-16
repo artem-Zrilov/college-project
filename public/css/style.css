@@ -79,6 +79,6 @@ body {
 
 @media screen and (max-width: 600px) {
     .brand-logo {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
     }
 }

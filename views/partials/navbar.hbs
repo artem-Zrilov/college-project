@@ -1,12 +1,17 @@
 <nav>
     <div class="nav-wrapper teal">
-        <a href="#" class="brand-logo">Онлайн запись</a>
+        <a href="/" class="brand-logo">Онлайн запись</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if user.isAdmin}}
+                <li><a href="/admin">Административная панель</a></li>
+            {{/if}}
+            <li><a href="/account">Личный кабинет</a></li>
             <li><a class="exit" href="#">Выйти</a></li>
         </ul>
     </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
+    <li><a href="/account">Личный кабинет</a></li>
     <li><a class="exit" href="#">Выйти</a></li>
 </ul>

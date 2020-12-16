@@ -1,5 +1,5 @@
 <div class="auth-card card darken-1">
-    <div class="card-content">
+    <form class="card-content form">
         <div class="input-field col s12">
             <input id="first_name" type="text" class="validate">
             <label for="first_name">Имя</label>
@@ -9,13 +9,19 @@
             <label for="second_name">Фамилия</label>
         </div>
         <div class="input-field col s12">
-            <input id="login" type="text" class="validate">
-            <label for="login">Логин</label>
+            <input id="email" type="email" class="validate" required>
+            <label for="email">Электропочта</label>
         </div>
         <div class="input-field col s6">
-            <input id="password" type="text" class="validate">
+            <input id="password" type="password" class="validate" required>
             <label for="password">Пароль</label>
         </div>
-        <a class="waves-effect waves-light btn margin-left-auto">Зарегестрироваться</a>
-    </div>
+        <button type="submit" class="waves-effect waves-light btn margin-left-auto">Зарегестрироваться</button>
+    </form>
 </div>
+
+{{#section 'script'}}
+
+    <script src="/js/registration.js"></script>
+
+{{/section}}
