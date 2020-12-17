@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.message) {
                 alert(response.message);
             } else {
+                window.utils.setCookie('jwt', response.token, {
+                    expires: new Date( Date.now() + 360000)
+                })
                 setTimeout(() => window.location = '/', 400);
             }
         })
