@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             card.querySelector('.card-title').textContent = doctor.fullName;
             card.querySelector('.card-content p').textContent = doctor.description;
-            card.querySelector('.card').setAttribute('data-id', doctor._id);
+            card.querySelector('.btn-floating ').href = `/doctor/${doctor._id}`;
             card.querySelector('img').src = doctor.image || '/images/no-photo.png';
             fragment.append(card);
         })

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(response.message);
             } else {
                 window.utils.setCookie('jwt', response.token, {
-                    expires: new Date( Date.now() + 360000)
+                    expires: new Date( Date.now() + 3600000000)
                 })
                 setTimeout(() => window.location = '/', 400);
             }

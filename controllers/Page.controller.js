@@ -1,6 +1,8 @@
 const Specialization = require('../models/Specialization');
 const Doctor = require('../models/Doctor');
-const User = require('../models/User');
+const Visit = require('../models/Visit');
+const Record = require('../models/Record');
+var dayjs = require('dayjs')
 
 class PageController {
     async renderIndex(req, res) {
@@ -32,14 +34,29 @@ class PageController {
         }
     }
 
-    async renderAccount(req, res) {
+    async renderAccount(req) {
+
+        const records = await Record.find({user: req.user._id});
+        const listRecords = [];
+
+        for (const record of records) {
+            const visit = await Visit.findOne({_id: record.visit})
+            const doctor = await Doctor.findOne({_id: record.doctor});
+
+            listRecords.push({
+                doctor: doctor.fullName,
+                date: dayjs(visit.date).format('DD.MM.YYYY HH:mm')
+            })
+        }
+
         return {
             title: 'Личный кабинет',
             user: {
                 firstName: req.user.firstName,
                 secondName: req.user.secondName,
                 isAdmin: req.user.isAdmin
-            }
+            },
+            records: listRecords
         }
     }
 
@@ -52,6 +69,26 @@ class PageController {
         res.render('admin', {
             title: 'Административная панель'
         })
+    }
+
+    async renderDoctorDetail(req, res) {
+        try {
+            const doctor = await Doctor.findOne({_id: req.params.id}).lean();
+            const visits = await Visit.find({doctor: doctor._id, isBusy: false}).lean();
+
+            res.render('doctor', {
+                title: `Запись к ${doctor.fullName}`,
+                doctor,
+                visits: visits.map(visit => ({...visit, date: dayjs(visit.date).format('DD.MM.YYYY HH:mm')})),
+                user: {
+                    firstName: req.user.firstName,
+                    secondName: req.user.secondName,
+                    isAdmin: req.user.isAdmin
+                }
+            })
+        } catch (e) {
+            res.redirect('/')
+        }
     }
 }
 

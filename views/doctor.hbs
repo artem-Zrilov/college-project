@@ -1,0 +1,23 @@
+{{> navbar}}
+<div class="main container" data-doctor="{{doctor._id}}">
+    <h1>{{doctor.fullName}}</h1>
+    <h4>Дата и время приема:</h4>
+
+    {{#if visits}}
+        <div class="collection">
+            {{#each visits}}
+                <a data-id="{{_id}}" href="#" class="collection-item">{{date}}</a>
+            {{/each}}
+        </div>
+        <div class="waves-effect waves-light btn margin-left-auto disabled">Записаться</div>
+    {{else}}
+        Приема нет
+    {{/if}}
+
+</div>
+
+{{#section 'script'}}
+
+    <script src="/js/doctor.js"></script>
+
+{{/section}}

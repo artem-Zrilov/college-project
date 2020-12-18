@@ -40,7 +40,8 @@
                     <div class="card-image">
                         <img {{#if image}} src="{{ image }}" {{else}} src="/images/no-photo.png" {{/if}}>
                         <span class="card-title">{{ fullName }}</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                        <a href="/doctor/{{_id}}" class="btn-floating halfway-fab waves-effect waves-light teal"><i
+                                class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>{{ description }}</p>

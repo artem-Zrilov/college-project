@@ -2,13 +2,17 @@
 <div class="main container">
     <h1>{{ user.firstName }} {{ user.secondName }}</h1>
     <div class="row">
-        <nav>
-            <div class="nav-wrapper teal">
-                <ul id="nav-mobile" class="left">
-                    <li class="active"><a href="/account">История</a></li>
-                    <li><a href="/account/change">Изменить данные</a></li>
-                </ul>
-            </div>
-        </nav>
+        <h3>Записи к врачам: </h3>
+        <ul class="collection">
+            {{#each records}}
+                <li class="collection-item avatar">
+                    <i class="material-icons circle green">create</i>
+                    <span class="title">{{doctor}}</span>
+                    <p>
+                        {{date}}
+                    </p>
+                </li>
+            {{/each}}
+        </ul>
     </div>
 </div>

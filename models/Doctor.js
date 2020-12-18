@@ -16,24 +16,7 @@ const schema = new Schema({
     image: {
         type: String,
         default: ""
-    },
-    dates: [
-        {
-            date: {
-                type: String
-            },
-            times: [{
-                value: {
-                    type: String,
-                    required: true
-                },
-                isBusy: {
-                    type: Boolean,
-                    default: false
-                }
-            }]
-        }
-    ]
+    }
 })
 
 module.exports = model('Doctor', schema, 'doctors')

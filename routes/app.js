@@ -29,16 +29,14 @@ router.get('/account', passport.authenticate('jwt', {
     res.render('account', await pageController.renderAccount(req, res));
 });
 
-router.get('/account/change', passport.authenticate('jwt', {
-    session: false,
-    failureRedirect: '/login'
-}), async (req, res) => {
-    res.render('account-change', await pageController.renderAccount(req, res));
-});
-
 router.get('/admin', passport.authenticate('jwt', {
     session: false,
     failureRedirect: '/login'
 }), pageController.renderAdmin);
+
+router.get('/doctor/:id', passport.authenticate('jwt', {
+    session: false,
+    failureRedirect: '/login'
+}),pageController.renderDoctorDetail);
 
 module.exports = router;
